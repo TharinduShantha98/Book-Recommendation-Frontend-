@@ -1,0 +1,126 @@
+/* Container and Card */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4fc;
+  }
+  
+  .signup-card {
+    display: flex;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+  }
+  
+  /* Left Section */
+  .signup-left {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  .signup-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .signup-subtitle {
+    color: #666;
+    margin: 10px 0 20px;
+  }
+  
+  .signup-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .signup-form label {
+    display: block;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  
+  .signup-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  
+  .signup-form .password-hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+  }
+  
+  .signup-button {
+    width: 100%;
+    background-color: #5a67d8;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .signup-button:hover {
+    background-color: #434ea1;
+  }
+  
+  /* Footer */
+  .signup-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .signup-link {
+    color: #5a67d8;
+    text-decoration: none;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Right Section */
+  .signup-right {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .signup-right h1 {
+    font-size: 3.9rem;
+    font-weight: bold;
+    padding: 0%;
+    margin: 0%;
+  }
+  
+  .signup-right h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0%;
+  }
+  
+  .signup-right p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+  }
+
+  
+  
