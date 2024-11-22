@@ -6,6 +6,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import SignUpPage from './components/sign_up/SignUpPage'
 import LoginPage from './components/login/LoginPage';
+import BookManager from './components/book/BookManager';
+
+import 'normalize.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +18,8 @@ root.render(
   <Routes>
     <Route path="/" element={<LoginPage />} />
     <Route path="/signup" element={<SignUpPage />} />
+    <Route path="/book" element={<BookManager />} />
+   
   </Routes>
 </Router>
 );

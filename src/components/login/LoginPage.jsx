@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
+import authService from "../../service/authService";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +13,19 @@ const LoginPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add login logic here
-    console.log("Login submitted:", formData);
+  
+    try {
+      const data = await authService.login(formData.email, formData.password);
+      console.log("Login successful:", data);
+
+      localStorage.setItem("token", data.token); 
+      window.location.href = "/book";
+    } catch (error) {
+      console.log(error.message || "Invalid login credentials")
+     // setErrorMessage(error.message || "Invalid login credentials");
+    }
   };
 
   return (

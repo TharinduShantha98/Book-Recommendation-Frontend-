@@ -1,26 +1,51 @@
 import React, { useState } from "react";
-import  './signUp.css'
+import "./signUp.css";
+import singUpService from "../../service/singUpService";// Import the service
 
-const SignUpPage = ()=>{
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
+const SignUpPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
+  const [errorMessage, setErrorMessage] = useState(""); // For error handling
+  const [successMessage, setSuccessMessage] = useState(""); // For success feedback
 
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add validation and submission logic here
-      };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-    return(
-        <div className="signup-container">
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { name, email, password, confirmPassword } = formData;
+
+    // Validate passwords
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
+
+    try {
+      setErrorMessage("");
+      const data = await singUpService.signup(name, email, password);
+      if(data){
+        setSuccessMessage("Signup successful! You can now log in.");
+        console.log("Signup success:", data);
+        window.location.href = "/";
+      }
+
+     
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
+
+  return (
+    <div className="signup-container">
       <div className="signup-card">
         {/* Left Side */}
         <div className="signup-left">
@@ -77,6 +102,8 @@ const SignUpPage = ()=>{
               Sign Up
             </button>
           </form>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          {successMessage && <p className="success-message">{successMessage}</p>}
           <p className="signup-footer">
             Already a member?{" "}
             <a href="/signin" className="signup-link">
@@ -89,14 +116,11 @@ const SignUpPage = ()=>{
         <div className="signup-right">
           <h1 className="tochLab">Torch lab</h1>
           <h2>Welcome!</h2>
-          <p>
-            Book Recommendation System
-          </p>
+          <p>Book Recommendation System</p>
         </div>
       </div>
     </div>
-    )
+  );
+};
 
-
-}
 export default SignUpPage;
