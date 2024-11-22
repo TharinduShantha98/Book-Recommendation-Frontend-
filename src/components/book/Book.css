@@ -1,47 +1,163 @@
 .book-manager {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
+  width: 95vw;
+  height: 90vh;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+ 
+  /* gap: 30px; */
+}
+
+.book-manager h1 {
+  text-align: left;
+  margin-bottom: 6px;
+  font-size: 3rem;
+  color: #007bff;
+}
+
+.book-layout {
+  display: flex;
+  gap: 20px;
+}
+
+/* Left Section (Form and Search) */
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8f7f7;
+  /* gap: 30px; */
+}
+
+.book-form-container, .book-search-container {
+  width: 80%;
+  background: #efecec;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(65, 5, 5, 0.1);
   
-  .book-form, .book-search {
-    margin-bottom: 20px;
-  }
+}
+.book-form {
+  width: 100%;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 15px;
   
-  .book-form input, .book-form textarea, .book-search input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+}
+
+.book-form input, .book-form textarea, .book-search input {
+  width: 100%;
+  padding: 5px;
+  margin: 1px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.book-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+.book-search{
+  width: 100%;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 15px;
+}
+.book-form button, .book-search button {
+  width: 80%;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-form button:hover, .book-search button:hover {
+  background-color: #0056b3;
+}
+
+/* Right Section (Table) */
+.right-section {
+  flex: 2;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.book-table th, .book-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  color: #555;
+}
+
+.book-table th {
+  background-color: #007bff;
+  color: white;
+  text-transform: uppercase;
+}
+
+.book-table tr:last-child td {
+  border-bottom: none;
+}
+
+.book-table button {
+  padding: 8px 12px;
+  margin: 1px 2px 5px 2px ;
+  font-size: 0.9rem;
+  color: white;
+  /* background-color: #284ca7; */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-table button:hover {
+  background-color: #218838;
+}
+
+.deleteButton{
+  background-color: #dc3545;
+
+}
+
+.editButton{
+  background-color: #9cac3a;
+}
+.book-table button.delete {
+  background-color: #dc3545;
+}
+
+.book-table button.delete:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .book-layout {
+    flex-direction: column;
   }
-  
-  .book-form button, .book-search button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+  .right-section {
+    margin-top: 20px;
   }
-  
-  .book-form button:hover, .book-search button:hover {
-    background-color: #0056b3;
-  }
-  
-  .book-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-  }
-  
-  .book-table th, .book-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  .book-table button {
-    margin: 0 5px;
-  }
-  
+}

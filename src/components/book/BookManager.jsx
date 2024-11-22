@@ -71,21 +71,69 @@ const BookManager = () => {
   };
 
   return (
+    // <div className="book-manager">
+    //   <h1>Book Manager</h1>
+    //   <BookForm
+    //     onAddBook={addBook}
+    //     onUpdateBook={updateBook}
+    //     selectedBook={selectedBook}
+    //     setSelectedBook={setSelectedBook}
+    //   />
+    //   <BookSearch onSearch={searchBookById} />
+    //   <BookTable
+    //     books={searchResults.length > 0 ? searchResults : books}
+    //     onDelete={deleteBook}
+    //     onEdit={setSelectedBook}
+    //   />
+    // </div>
+
+
+
     <div className="book-manager">
-      <h1>Book Manager</h1>
-      <BookForm
-        onAddBook={addBook}
-        onUpdateBook={updateBook}
-        selectedBook={selectedBook}
-        setSelectedBook={setSelectedBook}
-      />
-      <BookSearch onSearch={searchBookById} />
-      <BookTable
-        books={searchResults.length > 0 ? searchResults : books}
-        onDelete={deleteBook}
-        onEdit={setSelectedBook}
-      />
+      <h1>Torch Labs Book Manager</h1>
+      <div className="book-layout">
+      
+        <div className="left-section">
+          <div className="book-form-container">
+            <h2>Add or Edit Book</h2>
+            <BookForm
+              onAddBook={addBook}
+              onUpdateBook={updateBook}
+              selectedBook={selectedBook}
+              setSelectedBook={setSelectedBook}
+            />
+          </div>
+          <div className="book-search-container">
+            <h2>Search Books</h2>
+            <BookSearch onSearch={searchBookById} />
+          </div>
+        </div>
+
+        
+        <div className="right-section">
+          <h2>Book List</h2>
+          <BookTable books={books} onDelete={deleteBook} onEdit={setSelectedBook} />
+        </div>
+      </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   );
 };
 
