@@ -112,7 +112,7 @@ const BookManager = () => {
         
         <div className="right-section">
           <h2>Book List</h2>
-          <BookTable books={books} onDelete={deleteBook} onEdit={setSelectedBook} />
+          <BookTable  books={searchResults.length > 0 ? searchResults : books} onDelete={deleteBook} onEdit={setSelectedBook} />
         </div>
       </div>
     </div>
